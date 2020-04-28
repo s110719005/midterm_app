@@ -26,7 +26,8 @@ class FavoritesScreen extends Component {
 
   render() {
     return (
-    <SafeAreaView style={{ backgroundColor: '#00b49f' }}>   
+    // <SafeAreaView style={{ backgroundColor: '#00b49f' }}>  
+    <View>
       <View style={styles.container3}>
           <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
                   <Image style={{ width: 50, height: 50,marginLeft:16,backgroundColor:"#00b49f"}}
@@ -36,7 +37,8 @@ class FavoritesScreen extends Component {
       
       </View>
       <Text style={{color:"black",backgroundColor: '#ffffff'}}>FavoritesScreen</Text>
-    </SafeAreaView>
+      </View> 
+    // </SafeAreaView>
       
 
     )

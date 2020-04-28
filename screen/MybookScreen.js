@@ -26,7 +26,8 @@ class MybookScreen extends Component {
 
   render() {
     return (
-        <SafeAreaView style={{ backgroundColor: '#00b49f' }}>   
+        // <SafeAreaView style={{ backgroundColor: '#00b49f' }}>   
+        <View>
         <View style={styles.container2}>
             <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
                     <Image style={{ width: 50, height: 50,marginLeft:16,backgroundColor:"#00b49f"}}
@@ -35,7 +36,8 @@ class MybookScreen extends Component {
           </TouchableOpacity>
       </View>
         <Text style={{color:"black",backgroundColor: '#ffffff'}}>HomeScreen</Text>
-      </SafeAreaView>
+        </View>
+      // </SafeAreaView>
       
 
     )
