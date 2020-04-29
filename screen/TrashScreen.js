@@ -10,7 +10,7 @@ import {
   ScrollView
 } from "react-native";
 
-
+import TrashDetailScrenn from './TrashDetailScreen'
 
 //library imports
 //import { Icon, Button, Container, Header, Content, Left } from 'native-base'
@@ -35,16 +35,7 @@ const TrashScreen = ({navigation}) => {
             <TouchableOpacity onPress={() => navigation.goBack('Home1')}>
                 <Image source={require('../image/btn_back.png')} style={styles.trash_back}/>
             </TouchableOpacity>
-            <ScrollView style={styles.trash_content}>
-                <Text style={styles.trash_text}>資源回收</Text>
-                <View style={styles.trash_select}>
-                    <View style={styles.trash_btn_box}><Text style={styles.trash_btn}>立體類</Text></View>
-                    <View style={styles.trash_btn_box}><Text style={styles.trash_btn}>平面類</Text></View>
-                    <View style={styles.trash_btn_box}><Text style={styles.trash_btn}>其他類</Text></View>
-                    <Image source={require('../image/btn_info.png')} style={styles.trash_btn_information}/>
-                </View>
-                
-            </ScrollView>
+            <TrashDetailScrenn></TrashDetailScrenn>
             
           </ImageBackground>
         </Fragment>
