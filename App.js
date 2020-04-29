@@ -3,18 +3,24 @@ import { StyleSheet, Text, View,SafeAreaView,ScrollView,Dimensions,Image } from 
 
 import {createDrawerNavigator,DrawerItems,createBottomTabNavigator} from 'react-navigation'
 import {NavigationContainer, TabActions} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import {
+  StackNavigator,
+} from 'react-navigation';
 //import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 //import {creat}
 
-
+import StackScreen from './screen/StackScreen'
 import HomeScreen from './screen/HomeScreen'
-import SettingsScreen from './screen/SettingsScreen'
+import UserScreen from './screen/UserScreen'
 import AboutusScreen from './screen/AboutusScreen'
-import FavoritesScreen from './screen/FavoritesScreen'
-import MybookScreen from './screen/MybookScreen'
+import ActivityScreen from './screen/ActivityScreen'
+import ClockScreen from './screen/ClockScreen'
+import StackScreen2 from './screen/StackScreen2'
 import { render } from 'react-dom';
 
 //const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render(){
@@ -32,6 +38,12 @@ export default class App extends React.Component {
         </Tab.Navigator>
       </NavigationContainer> */}
       <MytabNavigator/>
+      {/* <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Detail" component={MybookScreen} />      
+      </Stack.Navigator>
+    </NavigationContainer> */}
       {/* <HomeScreen/> */}
     </View>
     
@@ -79,10 +91,19 @@ export default class App extends React.Component {
   
 // )
 
+// const App2 = StackNavigator({
+//   Home: { screen: HomeScreen,
+//     navigationOptions: { headerShown:false }
+//    },
+//   Profile: { screen: FavoritesScreen },
+// },
+
+// );
+
 
 const MytabNavigator = createBottomTabNavigator({
   "Home":{
-    screen:HomeScreen,
+    screen:StackScreen,
     navigationOptions: {
       tabBarIcon:({tintColor}) => (
         <Image 
@@ -94,7 +115,7 @@ const MytabNavigator = createBottomTabNavigator({
     }
   },
   "My Book ":{
-    screen:MybookScreen,
+    screen:ClockScreen,
     navigationOptions: {
       tabBarIcon:({tintColor}) => (
         <Image 
@@ -107,7 +128,7 @@ const MytabNavigator = createBottomTabNavigator({
     
   },
   "Favorites ":{
-    screen:FavoritesScreen,
+    screen:StackScreen2,
     navigationOptions:{
       tabBarIcon:({tintColor}) => (
         <Image 
@@ -119,7 +140,7 @@ const MytabNavigator = createBottomTabNavigator({
     }
   },
   "User":{
-    screen:FavoritesScreen,
+    screen:UserScreen,
     navigationOptions:{
       tabBarIcon:({tintColor}) => (
         <Image 

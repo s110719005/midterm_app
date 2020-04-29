@@ -22,27 +22,18 @@ import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 //custom components imports 
 
-class HomeScreen extends Component {
-  
- 
-
-  render() {
+const HomeScreen = ({navigation}) => {
     
     return (
       <Fragment>
         <SafeView style={{ backgroundColor: '#7FB134' }}/>
-        <ImageBackground source={require('../image/img_background4.png')} style={styles.background_image} >
-          {/* <View style={{height:50,backgroundColor:"transparent"}}>
-            <ImageBackground source={require('../image/img_header.png')} 
-            style={{flex: 1,resizeMode: "cover",justifyContent: "center",marginTop:0}}>
-              
-            </ImageBackground>
-          </View> */}
+        <ImageBackground source={require('../image/img_background.png')} style={styles.background_image} >
+          
           <View style={styles.header}>
             <Text style={styles.header_text}>今天, 我要丟＿＿</Text>
           </View>
           <View style={styles.btn}>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={() => navigation.push('Detail')}>
               <Image source={require('../image/btn_trash.png')} style={styles.home_btn}/>
             </TouchableOpacity>
 
@@ -82,7 +73,7 @@ class HomeScreen extends Component {
     )
   }
 
-}
+
 
 export default HomeScreen;
 
@@ -106,7 +97,7 @@ const styles = StyleSheet.create({
   header_text:{
     color:"white",
     
-    fontSize:20,
+    fontSize:24,
     letterSpacing:2,
     justifyContent:"flex-start",
     alignSelf:"flex-start"
