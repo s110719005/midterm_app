@@ -107,7 +107,7 @@ const MytabNavigator = createBottomTabNavigator({
     navigationOptions: {
       tabBarIcon:({tintColor}) => (
         <Image 
-          source={require('./image/icon_clock.png')}
+          source={require('./image/icon_home.png')}
           style = {{width:30 ,height:30,margin:0,justifyContent:"center",tintColor:tintColor}}
           />
       ),
@@ -132,7 +132,7 @@ const MytabNavigator = createBottomTabNavigator({
     navigationOptions:{
       tabBarIcon:({tintColor}) => (
         <Image 
-          source={require('./image/icon_clock.png')}
+          source={require('./image/icon_activity.png')}
           style = {{width:30 ,height:30,margin:0,justifyContent:"center",tintColor:tintColor}}
           />
       ),
@@ -144,7 +144,7 @@ const MytabNavigator = createBottomTabNavigator({
     navigationOptions:{
       tabBarIcon:({tintColor}) => (
         <Image 
-          source={require('./image/icon_clock.png')}
+          source={require('./image/icon_user.png')}
           style = {{width:30 ,height:30,margin:0,justifyContent:"center",tintColor:tintColor}}
           />
       ),

@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity, Linking,Switch} from "react-native";
 
 
 
 const MessageDetail = ({clock}) => {
     
-    
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     return(
         <View style={styles.clock_pat}>
@@ -16,7 +17,14 @@ const MessageDetail = ({clock}) => {
                 <Text style={styles.clock_pat_text}>{clock.address}</Text>
             </View>
             <View>
-                <Switch/>
+            <Switch
+        trackColor={{ false: "#E9E9E9", true: "#7FB134" }}
+        thumbColor={isEnabled ? "#FDD510" : "#FDD510"}
+        ios_backgroundColor="#E9E9E9"
+        style={{ transform:[{ scaleX: 1 }, { scaleY: 1 }] }}
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
             </View>
         </View>
         

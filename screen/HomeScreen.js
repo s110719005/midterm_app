@@ -33,34 +33,34 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.header_text}>今天, 我要丟＿＿</Text>
           </View>
           <View style={styles.btn}>
-            <TouchableOpacity onPress={() => navigation.push('Detail')}>
+            <TouchableOpacity >
               <Image source={require('../image/btn_trash.png')} style={styles.home_btn}/>
             </TouchableOpacity>
 
             <View style={styles.btn_top}>
               <TouchableOpacity >
-              <Image source={require('../image/btn_trash.png')} style={[styles.home_btn]}/>
+              <Image source={require('../image/btn_search.png')} style={[styles.home_btn]}/>
               </TouchableOpacity>
               <View style={{marginRight:20}}></View>
-              <TouchableOpacity >
-                <Image source={require('../image/btn_trash.png')} style={styles.home_btn}/>
+              <TouchableOpacity onPress={() => navigation.push('Detail')}>
+                <Image source={require('../image/btn_recycle.png')} style={styles.home_btn}/>
               </TouchableOpacity>
             </View>
 
-              <Image source={require('../image/btn_trash.png')} style={[styles.home_btn,{marginTop:-70}]}/>
+              <Image source={require('../image/img_logo.png')} style={[styles.home_btn,{marginTop:-70}]}/>
             
             <View style={styles.btn_bottom}>
               <TouchableOpacity >
-                <Image source={require('../image/btn_trash.png')} style={[styles.home_btn]}/>
+                <Image source={require('../image/btn_furniture.png')} style={[styles.home_btn]}/>
               </TouchableOpacity>
               <View style={{marginRight:20}}></View>
               <TouchableOpacity >
-                <Image source={require('../image/btn_trash.png')} style={styles.home_btn}/>
+                <Image source={require('../image/btn_food.png')} style={styles.home_btn}/>
               </TouchableOpacity>
             </View>
 
             <TouchableOpacity >
-              <Image source={require('../image/btn_trash.png')} style={[styles.home_btn,{marginTop:-70}]}/>
+              <Image source={require('../image/btn_cloth.png')} style={[styles.home_btn,{marginTop:-70}]}/>
             </TouchableOpacity>
           </View>
         </ImageBackground>

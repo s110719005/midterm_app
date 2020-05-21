@@ -12,6 +12,8 @@ import {
 
 import clockData from "../json/clock.json";
 import ClockDetail from "./ClockDetail";
+
+import ClockAdd from "./Clocksadd";
 //library imports
 //import { Icon, Button, Container, Header, Content, Left } from 'native-base'
 
@@ -19,14 +21,17 @@ import ClockDetail from "./ClockDetail";
 
 class ClockScreen extends Component {
   
-    static navigationOptions = {
-        drawerIcon : ({tintColor}) => (
-          <Image 
-          source={require('../assets/icon_drawer_home.png')}
-          style = {{width:24 ,height:24,marginBottom:20,marginTop:20,tintColor:tintColor}}
-          />
-        )
+    constructor(props){
+      super(props);
+      this.state = {
+
       };
+    }
+
+    _onPressed (){
+      //alert("You add an item!");
+      this.refs.addModal.showClockAdd();
+    }
 
   render() {
     return (
@@ -45,6 +50,10 @@ class ClockScreen extends Component {
           renderItem={({ item }) => <ClockDetail clock={item} />}
         keyExtractor={item => item.title}
         />
+
+        {/* <ClockAdd ref={'addModal'} parentFlatlist={this}>
+
+        </ClockAdd> */}
       </View>
       <View style={styles.clock_btn_box}>
         <TouchableOpacity >

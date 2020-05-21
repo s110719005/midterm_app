@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  AsyncStorage
 } from "react-native";
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,16 +18,52 @@ import TrashScreen from './TrashScreen'
 //import { Icon, Button, Container, Header, Content, Left } from 'native-base'
 
 //custom components imports 
+const PERSISTENCE_KEY = "NAVIGATION_STATE";
 const Stack = createStackNavigator();
 
-const StackScreen = () => {
+function StackScreen(props){
   
- 
+  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  const [initialNavigationState, setInitialNavigationState] = React.useState();
+  
+  //const { getInitialState } = useLinking(containerRef);
+
+  // Load any resources or data that we need prior to rendering the app
+  React.useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        
+        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+        const state = JSON.parse(savedStateString);
+        // Load our initial navigation state
+        setInitialNavigationState(state);
+
+        
+      } catch (e) {
+        // We might want to provide this error information to an error reporting service
+        console.warn(e);
+      } finally {
+        setLoadingComplete(true);
+        
+      }
+    }
+
+    loadResourcesAndDataAsync();
+  }, []);
+
+  if (!isLoadingComplete) {
+    return null;
+  } else {
 
   
     return (
         
-        <NavigationContainer>
+        <NavigationContainer
+          initialState={initialNavigationState}
+          onStateChange={(state)=>
+            AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))
+          }
+        >
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home1" component={HomeScreen} />
           <Stack.Screen name="Detail" component={TrashScreen} />    
@@ -35,7 +72,7 @@ const StackScreen = () => {
 
     )
   }
-
+}
 
 
 export default StackScreen;

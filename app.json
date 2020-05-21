@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "testzeplin2",
+    "name": "App_midterm_110719005_110719018",
+    "slug": "midterm_go_green",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }
